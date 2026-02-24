@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="91 53 330 330" width="330" height="330">
+  <!-- Monitor keret -->
+  <rect x="106" y="80" width="300" height="220" rx="4" ry="4" fill="#4a5568"/>
+  
+  <!-- Monitor képernyő -->
+  <rect x="118" y="92" width="276" height="196" rx="2" ry="2" fill="#5ba3c0"/>
+  
+  <!-- Monitor háromszögek -->
+  <!-- Bal felső - zöld -->
+  <polygon points="118,92 118,288 256,190" fill="#8cb897"/>
+  <!-- Bal alsó - sárga/narancs -->
+  <polygon points="118,288 256,190 256,288" fill="#e5b355"/>
+  <!-- Felső középső - világos türkiz -->
+  <polygon points="118,92 256,190 394,92" fill="#7ed4d4"/>
+  <!-- Jobb felső - kék -->
+  <polygon points="256,190 394,92 394,288" fill="#5ba3c0"/>
+  <!-- Jobb alsó - közép kék -->
+  <polygon points="256,190 256,288 394,288" fill="#4a90a8"/>
+  
+  <!-- Monitor állvány - nyak -->
+  <rect x="226" y="300" width="60" height="50" fill="#d1d5db"/>
+  
+  <!-- Monitor állvány - talp -->
+  <rect x="196" y="345" width="120" height="12" rx="2" ry="2" fill="#e8eaed"/>
+</svg>

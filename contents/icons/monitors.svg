@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="57 45 398 398" width="398" height="398">
+  <!-- Hátsó monitor keret -->
+  <rect x="80" y="60" width="300" height="220" rx="4" ry="4" fill="#4a5568"/>
+  
+  <!-- Hátsó monitor képernyő -->
+  <rect x="92" y="72" width="276" height="196" rx="2" ry="2" fill="#5ba3c0"/>
+  
+  <!-- Hátsó monitor háromszögek -->
+  <!-- Bal felső - zöld -->
+  <polygon points="92,72 92,268 230,170" fill="#8cb897"/>
+  <!-- Bal alsó - sárga/narancs -->
+  <polygon points="92,268 230,170 230,268" fill="#e5b355"/>
+  <!-- Felső középső - világos türkiz -->
+  <polygon points="92,72 230,170 368,72" fill="#7ed4d4"/>
+  <!-- Jobb felső - kék -->
+  <polygon points="230,170 368,72 368,268" fill="#5ba3c0"/>
+  <!-- Jobb alsó - közép kék -->
+  <polygon points="230,170 230,268 368,268" fill="#4a90a8"/>
+  
+  <!-- Elülső monitor keret -->
+  <rect x="132" y="150" width="300" height="220" rx="4" ry="4" fill="#4a5568"/>
+  
+  <!-- Elülső monitor képernyő -->
+  <rect x="144" y="162" width="276" height="196" rx="2" ry="2" fill="#5ba3c0"/>
+  
+  <!-- Elülső monitor háromszögek -->
+  <!-- Bal felső - zöld -->
+  <polygon points="144,162 144,358 282,260" fill="#8cb897"/>
+  <!-- Bal alsó - sárga/narancs -->
+  <polygon points="144,358 282,260 282,358" fill="#e5b355"/>
+  <!-- Felső középső - világos türkiz -->
+  <polygon points="144,162 282,260 420,162" fill="#7ed4d4"/>
+  <!-- Jobb felső - kék -->
+  <polygon points="282,260 420,162 420,358" fill="#5ba3c0"/>
+  <!-- Jobb alsó - közép kék -->
+  <polygon points="282,260 282,358 420,358" fill="#4a90a8"/>
+  
+  <!-- Monitor állvány - nyak -->
+  <rect x="252" y="370" width="60" height="50" fill="#d1d5db"/>
+  
+  <!-- Monitor állvány - talp -->
+  <rect x="222" y="415" width="120" height="12" rx="2" ry="2" fill="#e8eaed"/>
+</svg>
