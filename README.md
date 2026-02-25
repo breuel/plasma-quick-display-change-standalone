@@ -4,6 +4,10 @@ Eigenständige Desktop-Anwendung zum schnellen Wechseln und Verwalten von Monito
 
 ![License](https://img.shields.io/badge/license-GPL--3.0--or--later-blue)
 
+| Hauptansicht | Einstellungen |
+|:---:|:---:|
+| ![Hauptansicht](Screenshot_01.png) | ![Einstellungen](Screenshot_02.png) |
+
 ## Features
 
 - **Gespeicherte Profile** – Aktuelle Monitor-Konfiguration als benanntes Profil speichern und per Klick wiederherstellen
