@@ -1,30 +1,30 @@
 # Plasma Quick Display Change – Standalone
 
-Eigenständige Desktop-Anwendung zum schnellen Wechseln und Verwalten von Monitor-Konfigurationen unter KDE Plasma 6. Läuft als normales Fenster ohne Plasma-Panel.
+A standalone desktop application for quickly switching and managing monitor configurations on KDE Plasma 6. Runs as a regular window without requiring the Plasma panel.
 
 ![License](https://img.shields.io/badge/license-GPL--3.0--or--later-blue)
 
-![Hauptansicht](Screenshot_01.png)
+![Main view](Screenshot_01.png)
 
-![Einstellungen](Screenshot_02.png)
+![Settings](Screenshot_02.png)
 
 ## Features
 
-- **Gespeicherte Profile** – Aktuelle Monitor-Konfiguration als benanntes Profil speichern und per Klick wiederherstellen
-- **Quick Layouts** – Nebeneinander, Erweitern links/rechts, Gestapelt, Spiegeln, Nur Hauptbildschirm
-- **Monitor-Steuerung** – Monitore aktivieren/deaktivieren, Primärbildschirm festlegen
-- **Layout-Editor** – Drag & Drop-Vorschau der Monitor-Positionen mit Snapping
-- **Monitor-Identifikation** – Overlay auf jedem Monitor mit Name und Auflösung
-- **16 Sprachen** – Deutsch, Englisch, Ungarisch, Französisch, Spanisch, Italienisch, Portugiesisch (BR), Russisch, Polnisch, Niederländisch, Türkisch, Japanisch, Koreanisch, Chinesisch (vereinfacht/traditionell)
-- **Einstellungen werden gespeichert** – Profile und Sprache bleiben über Neustarts erhalten
+- **Saved Profiles** – Save the current monitor configuration as a named profile and restore it with a single click
+- **Quick Layouts** – Side by side, extend left/right, stacked, mirrored, primary only
+- **Monitor Control** – Enable/disable monitors, set primary display
+- **Layout Editor** – Drag & drop preview of monitor positions with snapping
+- **Monitor Identification** – Overlay on each monitor showing name and resolution
+- **16 Languages** – German, English, Hungarian, French, Spanish, Italian, Portuguese (BR), Russian, Polish, Dutch, Turkish, Japanese, Korean, Chinese (simplified/traditional)
+- **Persistent Settings** – Profiles and language are preserved across restarts
 
-## Voraussetzungen
+## Requirements
 
 - **KDE Plasma 6** (Frameworks & Qt 6)
-- **kscreen-doctor** – Teil von `libkscreen` / `plasma-workspace`
-- **qml6** – QML-Runtime aus Qt 6
+- **kscreen-doctor** – Part of `libkscreen` / `plasma-workspace`
+- **qml6** – QML runtime from Qt 6
 
-### Installation der Abhängigkeiten
+### Installing Dependencies
 
 ```bash
 # Kubuntu / Ubuntu
@@ -39,91 +39,91 @@ sudo dnf install qt6-qtdeclarative-devel kscreen
 
 ## Installation
 
-Die Anwendung lässt sich als Benutzer-Programm installieren (kein `sudo` nötig):
+The application can be installed as a user-level program (no `sudo` required):
 
 ```bash
 ./install.sh
 ```
 
-Das Installationsskript:
-- Kopiert die Anwendungsdateien nach `~/.local/share/plasma-quick-display-change/`
-- Erstellt ein Startskript in `~/.local/bin/plasma-quick-display-change`
-- Installiert das Anwendungs-Icon nach `~/.local/share/icons/hicolor/scalable/apps/`
-- Erstellt einen `.desktop`-Eintrag in `~/.local/share/applications/` (Anwendungsmenü)
-- Prüft vorher, ob die Abhängigkeiten (`qml6`, `kscreen-doctor`) vorhanden sind
+The install script:
+- Copies application files to `~/.local/share/plasma-quick-display-change/`
+- Creates a launcher script in `~/.local/bin/plasma-quick-display-change`
+- Installs the application icon to `~/.local/share/icons/hicolor/scalable/apps/`
+- Creates a `.desktop` entry in `~/.local/share/applications/` (application menu)
+- Checks whether the dependencies (`qml6`, `kscreen-doctor`) are available
 
-Nach der Installation ist die Anwendung verfügbar über:
+After installation the application is available via:
 - **Terminal:** `plasma-quick-display-change`
-- **Anwendungsmenü:** Suche nach „Plasma Quick Display Change"
+- **Application menu:** Search for "Plasma Quick Display Change"
 
-> **Hinweis:** Falls `~/.local/bin` nicht im `$PATH` ist, diesen Eintrag in `~/.bashrc` ergänzen:
+> **Note:** If `~/.local/bin` is not in your `$PATH`, add this line to `~/.bashrc`:
 > ```bash
 > export PATH="$HOME/.local/bin:$PATH"
 > ```
 
-### Deinstallation
+### Uninstallation
 
 ```bash
 ./uninstall.sh
 ```
 
-Entfernt alle installierten Dateien aus `~/.local/` nach Bestätigung. Die Einstellungsdatei (`~/.config/Unknown Organization/qml6.conf`) wird nicht entfernt.
+Removes all installed files from `~/.local/` after confirmation. The settings file (`~/.config/Unknown Organization/qml6.conf`) is not removed.
 
-## Starten (ohne Installation)
+## Running Without Installation
 
-Die Anwendung kann auch direkt ohne Installation gestartet werden:
+The application can also be started directly without installation:
 
 ```bash
 ./run.sh
 ```
 
-Das Skript findet automatisch `qml6` oder `qml` und öffnet die Anwendung als eigenständiges Fenster. Beim ersten Start werden Icon und `.desktop`-Datei automatisch nach `~/.local/` kopiert, damit das Fenster in der Taskleiste korrekt dargestellt wird.
+The script automatically finds `qml6` or `qml` and opens the application as a standalone window. On first launch, the icon and `.desktop` file are automatically copied to `~/.local/` so the window is displayed correctly in the taskbar.
 
-## Nutzung
+## Usage
 
-1. **Monitore anzeigen** – Beim Start werden alle angeschlossenen Monitore erkannt und angezeigt.
-2. **Quick Layouts** – Vorgefertigte Anordnungen (Nebeneinander, Erweitern, Spiegeln etc.) mit einem Klick anwenden.
-3. **Profil speichern** – „Aktuelles als Profil speichern" klicken, Namen vergeben. Das Profil speichert die vollständige kscreen-doctor-JSON-Konfiguration.
-4. **Profil laden** – Gespeichertes Profil per „Anwenden" wiederherstellen.
-5. **Layout-Editor** – Monitore per Drag & Drop in der Vorschau anordnen, dann „Anwenden" klicken.
-6. **Einstellungen** – Über das Globus-Icon: Sprache, Badge-Anzeige, Löschbestätigung konfigurieren.
+1. **View monitors** – On startup all connected monitors are detected and displayed.
+2. **Quick Layouts** – Apply predefined arrangements (side by side, extend, mirror, etc.) with a single click.
+3. **Save profile** – Click "Save current as profile", enter a name. The profile stores the complete kscreen-doctor JSON configuration.
+4. **Load profile** – Restore a saved profile via "Apply".
+5. **Layout Editor** – Arrange monitors via drag & drop in the preview, then click "Apply".
+6. **Settings** – Via the globe icon: configure language, badge display, delete confirmation.
 
-## Projektstruktur
+## Project Structure
 
 ```
-├── run.sh                                  # Startskript
-├── install.sh                              # Installer (nach ~/.local/)
-├── uninstall.sh                            # Deinstallation
-├── plasma-quick-display-change.desktop     # Desktop-Eintrag (Vorlage)
+├── run.sh                                  # Launch script
+├── install.sh                              # Installer (to ~/.local/)
+├── uninstall.sh                            # Uninstaller
+├── plasma-quick-display-change.desktop     # Desktop entry (template)
 ├── contents/
 │   ├── ui/
-│   │   ├── main.qml                       # Hauptfenster (ApplicationWindow)
-│   │   ├── FullRepresentation.qml          # Haupt-UI (Profile, Layouts, Monitore)
-│   │   ├── CommandRunner.qml               # Shell-Befehlsausführung via Plasma DataSource
-│   │   ├── Translations.qml               # Übersetzungen (16 Sprachen)
-│   │   ├── MonitorDelegate.qml            # Einzelner Monitor-Eintrag in der Liste
-│   │   ├── LayoutEditor.qml               # Drag & Drop Layout-Vorschau
-│   │   └── IdentifyWindow.qml             # Monitor-Identifikations-Overlay
+│   │   ├── main.qml                       # Main window (ApplicationWindow)
+│   │   ├── FullRepresentation.qml          # Main UI (profiles, layouts, monitors)
+│   │   ├── CommandRunner.qml               # Shell command execution via Plasma DataSource
+│   │   ├── Translations.qml               # Translations (16 languages)
+│   │   ├── MonitorDelegate.qml            # Single monitor entry in the list
+│   │   ├── LayoutEditor.qml               # Drag & drop layout preview
+│   │   └── IdentifyWindow.qml             # Monitor identification overlay
 │   └── icons/
-│       ├── monitors.svg                    # Anwendungs-Icon
-│       └── monitor-single.svg             # Einzelner Monitor (Listen-Icon)
+│       ├── monitors.svg                    # Application icon
+│       └── monitor-single.svg             # Single monitor (list icon)
 ├── .gitignore
 └── README.md
 ```
 
-## Technik
+## Technical Details
 
-- **Erkennung:** `kscreen-doctor -o` liefert die aktuelle Monitor-Konfiguration (Text-Output wird geparst).
-- **Speichern:** `kscreen-doctor -j` liefert die vollständige Konfiguration als JSON – wird als Profil abgelegt.
-- **Laden:** Aus dem gespeicherten JSON wird ein `kscreen-doctor`-Befehl gebaut (z. B. `output.DP-2.enable output.DP-2.position.0,0 output.DP-2.mode.1`).
-- **Befehlsausführung:** Über die `Plasma5Support.DataSource` mit Engine `executable` (funktioniert auch außerhalb des Plasma-Panels).
-- **Persistenz:** `QtCore.Settings` speichert Profile und Einstellungen in `~/.config/Unknown Organization/qml6.conf` (Standalone-Modus).
-- **Fenster-Icon:** Wird über `--qwindowicon` gesetzt. Die Zuordnung zum Taskleisten-Eintrag erfolgt über `StartupWMClass=org.qt-project.qml` in der `.desktop`-Datei sowie `QT_WAYLAND_APP_ID` und `DESKTOP_FILE_HINT` auf Wayland.
+- **Detection:** `kscreen-doctor -o` provides the current monitor configuration (text output is parsed).
+- **Saving:** `kscreen-doctor -j` provides the full configuration as JSON – stored as a profile.
+- **Loading:** A `kscreen-doctor` command is built from the saved JSON (e.g. `output.DP-2.enable output.DP-2.position.0,0 output.DP-2.mode.1`).
+- **Command execution:** Via `Plasma5Support.DataSource` with the `executable` engine (works outside the Plasma panel as well).
+- **Persistence:** `QtCore.Settings` stores profiles and settings in `~/.config/Unknown Organization/qml6.conf` (standalone mode).
+- **Window icon:** Set via `--qwindowicon`. Taskbar association is handled through `StartupWMClass=org.qt-project.qml` in the `.desktop` file, along with `QT_WAYLAND_APP_ID` and `DESKTOP_FILE_HINT` on Wayland.
 
-## Herkunft
+## Origin
 
-Basiert auf [izll/plasma-quick-display-change](https://github.com/izll/plasma-quick-display-change) (Quick Display Change für Plasma 6, Autor: izll). Erweitert um gespeicherte Display-Profile und Standalone-Modus.
+Based on [izll/plasma-quick-display-change](https://github.com/izll/plasma-quick-display-change) (Quick Display Change for Plasma 6, author: izll). Extended with saved display profiles and standalone mode.
 
-## Lizenz
+## License
 
 GPL-3.0-or-later
