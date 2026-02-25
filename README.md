@@ -33,13 +33,47 @@ sudo pacman -S qt6-declarative libkscreen
 sudo dnf install qt6-qtdeclarative-devel kscreen
 ```
 
-## Starten
+## Installation
+
+Die Anwendung lässt sich als Benutzer-Programm installieren (kein `sudo` nötig):
+
+```bash
+./install.sh
+```
+
+Das Installationsskript:
+- Kopiert die Anwendungsdateien nach `~/.local/share/plasma-quick-display-change/`
+- Erstellt ein Startskript in `~/.local/bin/plasma-quick-display-change`
+- Installiert das Anwendungs-Icon nach `~/.local/share/icons/hicolor/scalable/apps/`
+- Erstellt einen `.desktop`-Eintrag in `~/.local/share/applications/` (Anwendungsmenü)
+- Prüft vorher, ob die Abhängigkeiten (`qml6`, `kscreen-doctor`) vorhanden sind
+
+Nach der Installation ist die Anwendung verfügbar über:
+- **Terminal:** `plasma-quick-display-change`
+- **Anwendungsmenü:** Suche nach „Plasma Quick Display Change"
+
+> **Hinweis:** Falls `~/.local/bin` nicht im `$PATH` ist, diesen Eintrag in `~/.bashrc` ergänzen:
+> ```bash
+> export PATH="$HOME/.local/bin:$PATH"
+> ```
+
+### Deinstallation
+
+```bash
+./uninstall.sh
+```
+
+Entfernt alle installierten Dateien aus `~/.local/` nach Bestätigung. Die Einstellungsdatei (`~/.config/Unknown Organization/qml6.conf`) wird nicht entfernt.
+
+## Starten (ohne Installation)
+
+Die Anwendung kann auch direkt ohne Installation gestartet werden:
 
 ```bash
 ./run.sh
 ```
 
-Das Skript findet automatisch `qml6` oder `qml` und öffnet die Anwendung als eigenständiges Fenster.
+Das Skript findet automatisch `qml6` oder `qml` und öffnet die Anwendung als eigenständiges Fenster. Beim ersten Start werden Icon und `.desktop`-Datei automatisch nach `~/.local/` kopiert, damit das Fenster in der Taskleiste korrekt dargestellt wird.
 
 ## Nutzung
 
@@ -53,19 +87,22 @@ Das Skript findet automatisch `qml6` oder `qml` und öffnet die Anwendung als ei
 ## Projektstruktur
 
 ```
-├── run.sh                          # Startskript
+├── run.sh                                  # Startskript
+├── install.sh                              # Installer (nach ~/.local/)
+├── uninstall.sh                            # Deinstallation
+├── plasma-quick-display-change.desktop     # Desktop-Eintrag (Vorlage)
 ├── contents/
 │   ├── ui/
-│   │   ├── main.qml               # Hauptfenster (ApplicationWindow)
-│   │   ├── FullRepresentation.qml  # Haupt-UI (Profile, Layouts, Monitore)
-│   │   ├── CommandRunner.qml       # Shell-Befehlsausführung via Plasma DataSource
-│   │   ├── Translations.qml       # Übersetzungen (16 Sprachen)
-│   │   ├── MonitorDelegate.qml    # Einzelner Monitor-Eintrag in der Liste
-│   │   ├── LayoutEditor.qml       # Drag & Drop Layout-Vorschau
-│   │   └── IdentifyWindow.qml     # Monitor-Identifikations-Overlay
+│   │   ├── main.qml                       # Hauptfenster (ApplicationWindow)
+│   │   ├── FullRepresentation.qml          # Haupt-UI (Profile, Layouts, Monitore)
+│   │   ├── CommandRunner.qml               # Shell-Befehlsausführung via Plasma DataSource
+│   │   ├── Translations.qml               # Übersetzungen (16 Sprachen)
+│   │   ├── MonitorDelegate.qml            # Einzelner Monitor-Eintrag in der Liste
+│   │   ├── LayoutEditor.qml               # Drag & Drop Layout-Vorschau
+│   │   └── IdentifyWindow.qml             # Monitor-Identifikations-Overlay
 │   └── icons/
-│       ├── monitors.svg
-│       └── monitor-single.svg
+│       ├── monitors.svg                    # Anwendungs-Icon
+│       └── monitor-single.svg             # Einzelner Monitor (Listen-Icon)
 ├── .gitignore
 └── README.md
 ```
@@ -76,7 +113,8 @@ Das Skript findet automatisch `qml6` oder `qml` und öffnet die Anwendung als ei
 - **Speichern:** `kscreen-doctor -j` liefert die vollständige Konfiguration als JSON – wird als Profil abgelegt.
 - **Laden:** Aus dem gespeicherten JSON wird ein `kscreen-doctor`-Befehl gebaut (z. B. `output.DP-2.enable output.DP-2.position.0,0 output.DP-2.mode.1`).
 - **Befehlsausführung:** Über die `Plasma5Support.DataSource` mit Engine `executable` (funktioniert auch außerhalb des Plasma-Panels).
-- **Persistenz:** `Qt.labs.settings` speichert Profile und Einstellungen in `~/.config/Unknown Organization/qml6.conf` (Standalone-Modus).
+- **Persistenz:** `QtCore.Settings` speichert Profile und Einstellungen in `~/.config/Unknown Organization/qml6.conf` (Standalone-Modus).
+- **Fenster-Icon:** Wird über `--qwindowicon` gesetzt. Die Zuordnung zum Taskleisten-Eintrag erfolgt über `StartupWMClass=org.qt-project.qml` in der `.desktop`-Datei sowie `QT_WAYLAND_APP_ID` und `DESKTOP_FILE_HINT` auf Wayland.
 
 ## Herkunft
 

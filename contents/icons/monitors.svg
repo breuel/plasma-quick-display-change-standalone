@@ -1,43 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="57 45 398 398" width="398" height="398">
-  <!-- Hátsó monitor keret -->
-  <rect x="80" y="60" width="300" height="220" rx="4" ry="4" fill="#4a5568"/>
-  
-  <!-- Hátsó monitor képernyő -->
-  <rect x="92" y="72" width="276" height="196" rx="2" ry="2" fill="#5ba3c0"/>
-  
-  <!-- Hátsó monitor háromszögek -->
-  <!-- Bal felső - zöld -->
-  <polygon points="92,72 92,268 230,170" fill="#8cb897"/>
-  <!-- Bal alsó - sárga/narancs -->
-  <polygon points="92,268 230,170 230,268" fill="#e5b355"/>
-  <!-- Felső középső - világos türkiz -->
-  <polygon points="92,72 230,170 368,72" fill="#7ed4d4"/>
-  <!-- Jobb felső - kék -->
-  <polygon points="230,170 368,72 368,268" fill="#5ba3c0"/>
-  <!-- Jobb alsó - közép kék -->
-  <polygon points="230,170 230,268 368,268" fill="#4a90a8"/>
-  
-  <!-- Elülső monitor keret -->
-  <rect x="132" y="150" width="300" height="220" rx="4" ry="4" fill="#4a5568"/>
-  
-  <!-- Elülső monitor képernyő -->
-  <rect x="144" y="162" width="276" height="196" rx="2" ry="2" fill="#5ba3c0"/>
-  
-  <!-- Elülső monitor háromszögek -->
-  <!-- Bal felső - zöld -->
-  <polygon points="144,162 144,358 282,260" fill="#8cb897"/>
-  <!-- Bal alsó - sárga/narancs -->
-  <polygon points="144,358 282,260 282,358" fill="#e5b355"/>
-  <!-- Felső középső - világos türkiz -->
-  <polygon points="144,162 282,260 420,162" fill="#7ed4d4"/>
-  <!-- Jobb felső - kék -->
-  <polygon points="282,260 420,162 420,358" fill="#5ba3c0"/>
-  <!-- Jobb alsó - közép kék -->
-  <polygon points="282,260 282,358 420,358" fill="#4a90a8"/>
-  
-  <!-- Monitor állvány - nyak -->
-  <rect x="252" y="370" width="60" height="50" fill="#d1d5db"/>
-  
-  <!-- Monitor állvány - talp -->
-  <rect x="222" y="415" width="120" height="12" rx="2" ry="2" fill="#e8eaed"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="screenGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3daee9"/>
+      <stop offset="100%" stop-color="#2980b9"/>
+    </linearGradient>
+    <linearGradient id="bezelGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4d4d4d"/>
+      <stop offset="100%" stop-color="#2d2d2d"/>
+    </linearGradient>
+    <linearGradient id="standGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#666"/>
+      <stop offset="100%" stop-color="#444"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Standfuß -->
+  <rect x="196" y="418" width="120" height="14" rx="4" fill="url(#standGrad)"/>
+  <rect x="236" y="382" width="40" height="40" rx="3" fill="url(#standGrad)"/>
+
+  <!-- Monitor-Gehäuse -->
+  <rect x="56" y="52" width="400" height="310" rx="14" fill="url(#bezelGrad)"/>
+
+  <!-- Bildschirm -->
+  <rect x="74" y="68" width="364" height="262" rx="6" fill="url(#screenGrad)"/>
+
+  <!-- Bildschirminhalt: Zwei Monitor-Fenster nebeneinander (Darstellung von Display-Anordnung) -->
+  <!-- Linkes Display-Symbol -->
+  <rect x="108" y="118" width="130" height="90" rx="5" fill="#1a6da0" opacity="0.7"/>
+  <rect x="114" y="124" width="118" height="72" rx="3" fill="#5bc0f7"/>
+  <text x="173" y="168" font-family="sans-serif" font-weight="bold" font-size="30" fill="#1a6da0" text-anchor="middle">1</text>
+  <rect x="157" y="208" width="32" height="8" rx="2" fill="#1a6da0" opacity="0.5"/>
+
+  <!-- Rechtes Display-Symbol -->
+  <rect x="274" y="118" width="130" height="90" rx="5" fill="#1a6da0" opacity="0.7"/>
+  <rect x="280" y="124" width="118" height="72" rx="3" fill="#5bc0f7"/>
+  <text x="339" y="168" font-family="sans-serif" font-weight="bold" font-size="30" fill="#1a6da0" text-anchor="middle">2</text>
+  <rect x="323" y="208" width="32" height="8" rx="2" fill="#1a6da0" opacity="0.5"/>
+
+  <!-- Pfeile zwischen den Monitoren -->
+  <polygon points="246,155 260,148 260,162" fill="#ffffff" opacity="0.9"/>
+  <polygon points="266,155 252,148 252,162" fill="#ffffff" opacity="0.9"/>
+
+  <!-- Untere Statusleiste auf dem Bildschirm -->
+  <rect x="108" y="260" width="296" height="40" rx="5" fill="#1a6da0" opacity="0.4"/>
+  <circle cx="148" cy="280" r="10" fill="#27ae60" opacity="0.8"/>
+  <rect x="168" y="274" width="60" height="12" rx="3" fill="#ffffff" opacity="0.3"/>
+  <circle cx="268" cy="280" r="10" fill="#3daee9" opacity="0.8"/>
+  <rect x="288" y="274" width="60" height="12" rx="3" fill="#ffffff" opacity="0.3"/>
+
+  <!-- Spiegelung/Glanzeffekt oben auf dem Bildschirm -->
+  <rect x="74" y="68" width="364" height="50" rx="6" fill="#ffffff" opacity="0.07"/>
 </svg>

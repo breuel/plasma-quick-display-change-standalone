@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Plasma Quick Display Change
+Name[de]=Plasma Schneller Displaywechsel
+Comment=Quickly switch and manage monitor configurations
+Comment[de]=Monitor-Konfigurationen schnell wechseln und verwalten
+Exec=plasma-quick-display-change
+Icon=ICON_PATH_PLACEHOLDER
+Terminal=false
+Type=Application
+StartupWMClass=org.qt-project.qml
+Categories=Utility;System;Settings;
+Keywords=monitor;display;screen;kscreen;

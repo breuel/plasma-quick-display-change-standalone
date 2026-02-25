@@ -23,4 +23,24 @@ if [ -z "$QML_BIN" ]; then
     exit 1
 fi
 
-exec "$QML_BIN" "$QML_FILE" "$@"
+APP_ID="plasma-quick-display-change"
+ICON_FILE="$SCRIPT_DIR/contents/icons/monitors.svg"
+DESKTOP_FILE="$SCRIPT_DIR/$APP_ID.desktop"
+LOCAL_DESKTOP="$HOME/.local/share/applications/$APP_ID.desktop"
+LOCAL_ICON="$HOME/.local/share/icons/hicolor/scalable/apps/$APP_ID.svg"
+
+if [ ! -f "$LOCAL_ICON" ] && [ -f "$ICON_FILE" ]; then
+    mkdir -p "$(dirname "$LOCAL_ICON")"
+    cp "$ICON_FILE" "$LOCAL_ICON"
+fi
+if [ ! -f "$LOCAL_DESKTOP" ] && [ -f "$DESKTOP_FILE" ]; then
+    mkdir -p "$(dirname "$LOCAL_DESKTOP")"
+    sed "s|Icon=ICON_PATH_PLACEHOLDER|Icon=$LOCAL_ICON|" "$DESKTOP_FILE" > "$LOCAL_DESKTOP"
+    update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
+fi
+
+export QT_WAYLAND_APP_ID="$APP_ID"
+if [ -f "$LOCAL_DESKTOP" ]; then
+    export DESKTOP_FILE_HINT="$LOCAL_DESKTOP"
+fi
+exec "$QML_BIN" --qwindowicon "$ICON_FILE" "$QML_FILE" "$@"

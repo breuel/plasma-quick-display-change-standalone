@@ -10,7 +10,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
-import Qt.labs.settings
+import QtCore
 import org.kde.kirigami 2.20 as Kirigami
 
 QQC2.ApplicationWindow {
@@ -80,6 +80,7 @@ QQC2.ApplicationWindow {
     // ── Lifecycle ──
 
     Component.onCompleted: {
+        Qt.application.desktopFileName = "plasma-quick-display-change";
         refreshMonitors();
         loadSavedProfiles();
     }
