@@ -1,9 +1,10 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=Plasma Quick Display Change
 Name[de]=Plasma Schneller Displaywechsel
 Comment=Quickly switch and manage monitor configurations
 Comment[de]=Monitor-Konfigurationen schnell wechseln und verwalten
-Exec=plasma-quick-display-change
+Exec=EXEC_PATH_PLACEHOLDER
 Icon=ICON_PATH_PLACEHOLDER
 Terminal=false
 Type=Application

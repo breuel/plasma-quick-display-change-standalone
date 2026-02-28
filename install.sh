@@ -59,10 +59,11 @@ echo "Installiere Icon ..."
 mkdir -p "$ICON_DIR"
 cp "$SCRIPT_DIR/contents/icons/monitors.svg" "$ICON_DIR/$APP_NAME.svg"
 
-# .desktop-Datei installieren (Icon-Pfad einsetzen)
+# .desktop-Datei installieren (Icon- und Exec-Pfad einsetzen)
 echo "Installiere Desktop-Eintrag ..."
 mkdir -p "$DESKTOP_DIR"
-sed "s|Icon=ICON_PATH_PLACEHOLDER|Icon=$ICON_DIR/$APP_NAME.svg|" \
+sed -e "s|Icon=ICON_PATH_PLACEHOLDER|Icon=$ICON_DIR/$APP_NAME.svg|" \
+    -e "s|Exec=EXEC_PATH_PLACEHOLDER|Exec=$BIN_DIR/$APP_NAME|" \
     "$SCRIPT_DIR/$APP_NAME.desktop" > "$DESKTOP_DIR/$APP_NAME.desktop"
 
 # Desktop-Datenbank aktualisieren
