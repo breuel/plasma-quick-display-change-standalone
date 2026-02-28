@@ -26,8 +26,10 @@ done
 if [ -n "$MISSING" ]; then
     echo "Warnung: Folgende Abhängigkeiten fehlen:$MISSING"
     echo ""
-    echo "Installation der Abhängigkeiten:"
-    echo "  sudo apt install qt6-declarative-dev-tools libkscreen2-tools"
+    echo "Installation der Abhängigkeiten (Paketnamen je nach Distro unterschiedlich):"
+    echo "  Kubuntu/Ubuntu:  sudo apt install qt6-declarative-dev-tools libkscreen2-tools"
+    echo "  Debian:          sudo apt install qml-qt6 libkscreen-bin"
+    echo "  (Falls nicht gefunden: apt search kscreen bzw. apt search qml)"
     echo ""
     read -rp "Trotzdem fortfahren? [j/N] " answer
     if [[ ! "$answer" =~ ^[jJyY]$ ]]; then

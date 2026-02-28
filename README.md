@@ -26,9 +26,16 @@ A standalone desktop application for quickly switching and managing monitor conf
 
 ### Installing Dependencies
 
+Package names differ by distribution. If a package is not found, try the variant for your distro:
+
 ```bash
-# Kubuntu / Ubuntu
+# Kubuntu / Ubuntu (package may be named libkscreen2-tools or missing on some versions)
 sudo apt install qt6-declarative-dev-tools libkscreen2-tools
+
+# Debian (e.g. Trixie/Bookworm) – if libkscreen2-tools is not available:
+sudo apt install qml-qt6 libkscreen-bin
+# Or: kscreen (often includes kscreen-doctor)
+sudo apt install qt6-declarative-dev-tools kscreen
 
 # Arch Linux
 sudo pacman -S qt6-declarative libkscreen
@@ -37,7 +44,18 @@ sudo pacman -S qt6-declarative libkscreen
 sudo dnf install qt6-qtdeclarative-devel kscreen
 ```
 
+If a package is not found, run `apt search kscreen` or `apt search qml` to find the correct name for your system.
+
 ## Installation
+
+**Dependencies must be installed before running the installer.** Otherwise the install script will warn and the application will not run:
+
+- **qml6** (Qt 6 QML runtime)
+- **kscreen-doctor** (display control)
+
+See [Installing Dependencies](#installing-dependencies) above for the package commands (apt/pacman/dnf).
+
+---
 
 The application can be installed as a user-level program (no `sudo` required):
 
